@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Analytics Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <aside class="sidebar">
+    <h2>InsightFlow</h2>
+
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Customers</a>
+      <a href="#">Revenue</a>
+      <a href="#">Reports</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <h1>SaaS Analytics Dashboard</h1>
+        <p>Track revenue, customers, growth, and product performance.</p>
+      </div>
+
+      <div class="topbar-actions">
+        <button id="themeToggle">Dark Mode</button>
+        <button id="resetBtn">Reset Demo Data</button>
+        <button id="exportBtn">Export Report</button>
+      </div>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <p>Total Revenue</p>
+        <h2 id="totalRevenue">$0</h2>
+      </div>
+
+      <div class="card">
+        <p>Active Users</p>
+        <h2 id="activeUsers">0</h2>
+      </div>
+
+      <div class="card">
+        <p>Total Customers</p>
+        <h2 id="totalCustomers">0</h2>
+      </div>
+
+      <div class="card">
+        <p>Active Customers</p>
+        <h2 id="activeCustomers">0</h2>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel">
+        <h2>Revenue Overview</h2>
+        <div class="chart-placeholder"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Top Customers</h2>
+        <ul id="topCustomersList"></ul>
+      </div>
+    </section>
+
+    <section class="add-customer-section">
+      <div>
+        <h2>Add / Edit Customer</h2>
+        <p>Create a new customer account or update an existing one.</p>
+      </div>
+
+      <form id="customerForm" class="customer-form">
+        <input type="text" id="customerName" placeholder="Customer name" required>
+
+        <select id="customerPlan" required>
+          <option value="">Select plan</option>
+          <option value="Enterprise">Enterprise</option>
+          <option value="Business">Business</option>
+          <option value="Pro">Pro</option>
+          <option value="Starter">Starter</option>
+        </select>
+
+        <input type="number" id="customerRevenue" placeholder="Revenue" required>
+
+        <select id="customerStatus" required>
+          <option value="">Select status</option>
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+
+        <button type="submit" id="formSubmitBtn">Add Customer</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+
+      <div class="table-header">
+
+        <div>
+          <h2>Customer Accounts</h2>
+          <p>Search, filter, review, edit, and delete customer accounts.</p>
+        </div>
+
+        <div class="table-controls">
+
+          <select id="statusFilter">
+            <option value="All">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Pending">Pending</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+
+          <button id="sortHighBtn">
+            Highest Revenue
+          </button>
+
+          <button id="sortLowBtn">
+            Lowest Revenue
+          </button>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search customers..."
+          >
+
+        </div>
+
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Plan</th>
+            <th>Revenue</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="customerTable"></tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
